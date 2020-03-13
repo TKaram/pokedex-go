@@ -1,3 +1,4 @@
 FROM node:6-alpine
 ADD . /pokedex-handson
-CMD ["npm", "install"]
+RUN npm install
+CMD ["npm", "start"]
