@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh 'docker build -t pokimage .';
                 sh 'docker run -p 5555:5555 pokimage';
+                sh 'npm install';
                 sh 'npm test'
             }
         }
