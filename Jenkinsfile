@@ -9,13 +9,7 @@ pipeline {
         stage('run the unit tests within the image using') {
             steps {
                 sh 'docker build -t pokimage .';
-                sh 'docker run -p 5555:5555 pokimage';
-                sh 'docker exec -it `docker ps -q` npm test'
-            }
-        }
-        stage('deploy port 5555') {
-            steps {
-                sh 'docker exec `docker ps -q` npm start'
+                sh 'docker run -p 5555:5555 pokimage' npm test
             }
         }
         
