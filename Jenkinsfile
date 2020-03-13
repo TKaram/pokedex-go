@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh 'docker build -t pokimage .';
                 sh 'docker run -p 5555:5555 pokimage';
-                sh 'docker exec `docker ps -q` npm test'
+                sh 'docker exec -it `docker ps -q` npm test'
             }
         }
         stage('deploy port 5555') {
